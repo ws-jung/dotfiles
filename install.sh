@@ -1,4 +1,4 @@
-sudo reflector --country 'South Korea' --latest 200 --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --latest 20 --age 24 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syyu --noconfirm && sudo pacman -Scc --noconfirm
 sudo pacman -S uim --noconfirm
 sudo pacman -S noto-fonts-cjk --noconfirm
