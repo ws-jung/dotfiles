@@ -6,3 +6,4 @@ export XMODIFIERS='@im=uim'
 xmodmap ~/.Xmodmap
 sudo pacman -Syyu --noconfirm && sudo pacman -Scc --noconfirm
 uim-toolbar-gtk-systray &
+export PATH = $PATH:/home/bean/.local/bin

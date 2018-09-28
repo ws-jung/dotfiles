@@ -10,6 +10,7 @@ sudo pacman -Rns chromium --noconfirm
 yaourt -S google-chrome --noconfirm
 yaourt -S audacious --noconfirm
 yaourt -S polybar --noconfirm
+yaourt -S albert --noconfirm
 
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -31,7 +32,7 @@ yaourt -S xautolock --noconfirm
 
 # dotfiles setting
 sudo pip install dotfiles
-dotfiles -s --force
+dotfiles --sync --force
 
 
 
