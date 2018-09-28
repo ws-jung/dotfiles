@@ -137,7 +137,7 @@ bindsym $mod+X mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
 mode "$mode_system" {
-    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh exec fuzzylock
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
@@ -1103,3 +1103,6 @@ exec --no-startup-id audacious
 
 exec --no-startup-id blueberry-tray
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+
+
+exec_always xautolock -time 60 -locker '~/.local/bin/fuzzy_lock.sh' &
