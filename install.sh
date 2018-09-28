@@ -8,6 +8,8 @@ sudo pacman -S vim --noconfirm
 sudo pacman -Rns firefox --noconfirm
 sudo pacman -Rns chromium --noconfirm
 yaourt -S google-chrome --noconfirm
+yaourt -S audacious --noconfirm
+yaourt -S polybar --noconfirm
 
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
