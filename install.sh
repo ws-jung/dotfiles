@@ -14,13 +14,11 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 8.0.181-zulu
 sdk install gradle 3.2.1
 
-yaourt -S intellij-idea-ultimate-edition --noconfirm
-yaourt -S datagrip --noconfirm
+#yaourt -S intellij-idea-ultimate-edition --noconfirm
+#yaourt -S datagrip --noconfirm
 
-
-# zsh
-sudo pacman -S zsh --noconfirm
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git config --global user.email "ws.jung.d@gmail.com"
+git config --global user.name "ws.jung.d"
 
 # vim
 
@@ -32,4 +30,12 @@ yaourt -S xautolock --noconfirm
 # dotfiles setting
 sudo pip install dotfiles
 dotfiles -s --force
+
+
+
+
+# zsh
+sudo pacman -S zsh --noconfirm
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
