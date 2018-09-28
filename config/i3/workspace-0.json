@@ -1,0 +1,21 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 840,
+       "width": 1200,
+       "x": 680,
+       "y": 1380
+    },
+    "name": "VLC media player",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^vlc$"
+       }
+    ],
+    "type": "con"
+}
+
