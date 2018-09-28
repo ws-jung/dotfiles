@@ -30,6 +30,6 @@ yaourt -S betterlockscreen --noconfirm
 yaourt -S xautolock --noconfirm
 
 # dotfiles setting
-pip install --user dotfiles
+sudo pip install dotfiles
 dotfiles -s --force
 
