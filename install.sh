@@ -19,7 +19,17 @@ yaourt -S datagrip --noconfirm
 
 
 # zsh
-sudo pacman -S zsh --noconfirm 
+sudo pacman -S zsh --noconfirm
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # vim
+
+
+# fuzzy lock
+yaourt -S betterlockscreen --noconfirm
+yaourt -S xautolock --noconfirm
+
+# dotfiles setting
+pip install --user dotfiles
+dotfiles -s --force
+
