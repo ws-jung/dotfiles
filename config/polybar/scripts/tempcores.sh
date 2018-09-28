@@ -19,7 +19,7 @@ do
     do
         if (( "${tempCore[$iCore]}" < "${temperaturesValues[$iTemp]}"  )); then
             tmpEcho="%{F${temperaturesColors[$iTemp]}}${tempCore[$iCore]}$degree%{F-}"
-            finalEcho="$finalEcho $tmpEcho"
+            finalEcho=" $tmpEcho $finalEcho"
             break
         fi
     done
@@ -35,7 +35,7 @@ do
         tmpEcho="%{F${temperaturesColors[$iTemp]}}${temperaturesIcons[$iTemp]}%{F-}"
         ## This line will NOT color the icon
         #tmpEcho="${temperaturesIcons[$iTemp]}"
-        finalEcho=" $finalEcho $tmpEcho"
+        finalEcho=" $tmpEcho $finalEcho"
         break
     fi
 done
