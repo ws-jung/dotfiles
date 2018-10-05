@@ -7,24 +7,27 @@
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-# exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
+exec --no-startup-id xrandr --output HDMI1 --right-of HDMI2 --auto
 
 
 # my current setup
-set $firstMonitor eDP1
+set $firstMonitor HDMI2
+set $secondMonitor HDMI1
 
+workspace 0 output $firstMonitor
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $firstMonitor
-workspace 7 output $firstMonitor
-workspace 8 output $firstMonitor
-workspace 9 output $firstMonitor
-workspace 10 output $firstMonitor
+workspace 6 output $secondMonitor
+workspace 7 output $secondMonitor
+workspace 8 output $secondMonitor
+workspace 9 output $secondMonitor
+workspace 10 output $secondMonitor
 
 # switch to workspace
+bindsym $mod+Escape exec --no-startup-id ~/.config/i3/scripts/conky_workspace.sh
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -137,7 +140,7 @@ bindsym $mod+X mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
 mode "$mode_system" {
-    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh exec fuzzylock
+    bindsym k exec --no-startup-id ~/.local/bin/fuzzylock
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
@@ -429,8 +432,9 @@ exec --no-startup-id variety
 #Conky
 exec --no-startup-id conky -c ~/.config/i3/system-overview
 
+
 #Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+#exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -494,13 +498,12 @@ bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 
 #workspace 2 related
-set $mode_devtools (i) idea, (d) datagrip, (s) subl3, (a) atom
+set $mode_devtools (i) idea, (d) datagrip, (c) code
 bindsym $mod+F2 mode "$mode_devtools"
 mode "$mode_devtools" {
     bindsym i exec --no-startup-id intellij-idea-ultimate-edition;focus
     bindsym d exec --no-startup-id datagrip;focus
-    bindsym s exec --no-startup-id subl3;focus
-    bindsym a exec --no-startup-id atom;focus
+    bindsym c exec --no-startup-id code;focus
     bindsym Return mode "default"
     bindsym Escape mode "default"
 
@@ -749,8 +752,8 @@ popup_during_fullscreen smart
 
 
 #for_window [class="^.*"] border pixel 3W
-for_window [class="^.*"] border norma
-gaps inner 5
+for_window [class="^.*"] border normal
+gaps inner 15
 gaps outer 5
 #smart_gaps on
 #smart_borders on
@@ -782,8 +785,8 @@ mode "$mode_music" {
 
 
 set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_outer Outer Gaps: ||0 (local), Shift + ||0 (global)
+set $mode_gaps_inner Inner Gaps: ||0 (local), Shift + ||0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -794,24 +797,24 @@ mode "$mode_gaps" {
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
+        bindsym Up  gaps inner current plus 5
+        bindsym Down gaps inner current minus 5
         bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+Up  gaps inner all plus 5
+        bindsym Shift+Down gaps inner all minus 5
         bindsym Shift+0     gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
+        bindsym Up  gaps outer current plus 5
+        bindsym Down gaps outer current minus 5
         bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+Up  gaps outer all plus 5
+        bindsym Shift+Down gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
@@ -1070,7 +1073,7 @@ client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
 
 # workspace 1
 exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/bean/dotfiles/i3/workspace-1.json'"
-exec --no-startup-id chromium
+exec --no-startup-id google-chrome
 exec --no-startup-id telegram-desktop
 
 # workspace 2
@@ -1083,11 +1086,11 @@ exec --no-startup-id thunderbird
 
 # workspace 6
 exec --no-startup-id "i3-msg 'workspace 6; append_layout /home/bean/dotfiles/i3/workspace-6.json'"
-exec --no-startup-id thunar
+exec --no-startup-id google-chrome
 
 # workspace 7
 exec --no-startup-id "i3-msg 'workspace 7; append_layout /home/bean/dotfiles/i3/workspace-7.json'"
-#exec datagrip
+exec datagrip
 
 # workspace 10
 exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/bean/dotfiles/i3/workspace-10.json'"
@@ -1095,14 +1098,16 @@ exec --no-startup-id VBoxManage startvm "win10"
 
 
 # workspace 0
-#exec i3-msg "workspace 0; layout tabbed"
-exec --no-startup-id deluged
-exec --no-startup-id "i3-msg 'workspace 0; append_layout /home/bean/dotfiles/i3/workspace-0.json'"
-exec --no-startup-id deluge
-exec --no-startup-id audacious
+# exec i3-msg "workspace 0; layout tabbed"
+# exec --no-startup-id deluged
+# exec --no-startup-id "i3-msg 'workspace 0; append_layout /home/bean/dotfiles/i3/workspace-0.json'"
+# exec --no-startup-id deluge
+# exec --no-startup-id audacious
 
 exec --no-startup-id blueberry-tray
+exec --no-startup-id caffeine-indicator
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 
-exec_always xautolock -time 60 -locker '~/.local/bin/fuzzy_lock.sh' &
+exec_always xautolock -time 5 -locker '~/.local/bin/fuzzylock' &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
