@@ -1,4 +1,4 @@
-BASEDIR=$(readlink -f "$0"| sed -e 's/\/connect.sh//g')
+BASEDIR=$(readlink -f "$0"| sed -e 's/\/install.sh//g')
 
 FUNC=$1
 

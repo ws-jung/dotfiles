@@ -434,7 +434,7 @@ exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 
 #Polybar
-#exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -1110,4 +1110,3 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 
 exec_always xautolock -time 5 -locker '~/.local/bin/fuzzylock' &
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
