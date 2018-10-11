@@ -123,7 +123,10 @@ set $right semicolon
 
 # start rofi small
 bindsym $mod+shift+d exec --no-startup-id rofi -show run -font "Noto Sans 13"
-exec albert
+
+exec --no-startup-id xfce4-panel
+exec --no-startup-id caffeine
+exec --no-startup-id albert
 
 
 #####################################################################################################################
@@ -405,7 +408,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id pamac-tray
 
 # bluetooth
-#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 
 # network
 exec --no-startup-id nm-applet
@@ -423,6 +426,11 @@ exec_always --no-startup-id numlockx on
 #exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
+exec --no-startup-id caffeine-indicator
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+
+
+
 #variety
 exec --no-startup-id variety
 
@@ -435,6 +443,8 @@ exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -680,18 +690,15 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
-#bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-#bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-#bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-#bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
 
 
 #####################################################################################################################
 #################                          xbacklight                                               #################
 #####################################################################################################################
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2 # decrease screen brightness
 
 
 
@@ -1073,8 +1080,8 @@ client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
 
 # workspace 1
 exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/bean/dotfiles/i3/workspace-1.json'"
-exec --no-startup-id google-chrome
-exec --no-startup-id telegram-desktop
+#exec --no-startup-id google-chrome
+#exec --no-startup-id telegram-desktop
 
 # workspace 2
 exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/bean/dotfiles/i3/workspace-2.json'"
@@ -1090,11 +1097,11 @@ exec --no-startup-id google-chrome
 
 # workspace 7
 exec --no-startup-id "i3-msg 'workspace 7; append_layout /home/bean/dotfiles/i3/workspace-7.json'"
-exec datagrip
+#exec datagrip
 
 # workspace 10
 exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/bean/dotfiles/i3/workspace-10.json'"
-exec --no-startup-id VBoxManage startvm "win10"
+#exec --no-startup-id VBoxManage startvm "win10"
 
 
 # workspace 0
@@ -1104,9 +1111,5 @@ exec --no-startup-id VBoxManage startvm "win10"
 # exec --no-startup-id deluge
 # exec --no-startup-id audacious
 
-exec --no-startup-id blueberry-tray
-exec --no-startup-id caffeine-indicator
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
-
-exec_always xautolock -time 5 -locker '~/.local/bin/fuzzylock' &
+exec_always xautolock -time 10 -locker '~/.local/bin/fuzzylock' &

@@ -14,7 +14,8 @@ function installPackages() {
     sudo pacman -Rns chromium --noconfirm
     yaourt -S google-chrome --noconfirm
     yaourt -S audacious --noconfirm
-    yaourt -S polybar --noconfirm
+    #yaourt -S polybar --noconfirm
+    sudo pip install --upgrade oauth2client google-api-python-client
     yaourt -S albert --noconfirm
 
     curl -s "https://get.sdkman.io" | bash

@@ -100,3 +100,4 @@ source $ZSH/oh-my-zsh.sh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/bean/.sdkman"
 [[ -s "/home/bean/.sdkman/bin/sdkman-init.sh" ]] && source "/home/bean/.sdkman/bin/sdkman-init.sh"
+
