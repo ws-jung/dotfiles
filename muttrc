@@ -1,5 +1,5 @@
 set imap_user="ws.jung.d@gmail.com"
-set imap_pass="skwktls7"
+set imap_pass="$mail_password"
 
 set folder=imaps://imap.gmail.com/
 set spoolfile=+INBOX
@@ -44,5 +44,5 @@ set realname="정원석"
 set from="ws.jung.d@anypointmedia.com"
 
 set smtp_url="smtps://ws.jung.d@anypointmedia.com@smtpout.secureserver.net:465/"
-set smtp_pass="skwktls7"
+set smtp_pass="$mail_password"
 set smtp_authenticators="gssapi:login"
