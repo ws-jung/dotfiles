@@ -1,71 +1,37 @@
-BASEDIR=$(readlink -f "$0"| sed -e 's/\/install.sh//g')
-
-FUNC=$1
-
-function installPackages() {
-    sudo reflector --latest 20 --age 24 --sort rate --save /etc/pacman.d/mirrorlist
-    sudo pacman -Syyu --noconfirm && sudo pacman -Scc --noconfirm
-    sudo pacman -S uim --noconfirm
-    sudo pacman -S noto-fonts-cjk --noconfirm
-    sudo pacman -S ack --noconfirm
-    sudo pacman -S tree --noconfirm
-    sudo pacman -S vim --noconfirm
-    sudo pacman -Rns firefox --noconfirm
-    sudo pacman -Rns chromium --noconfirm
-    yaourt -S google-chrome --noconfirm
-    yaourt -S audacious --noconfirm
-    #yaourt -S polybar --noconfirm
-    sudo pip install --upgrade oauth2client google-api-python-client
-    yaourt -S albert --noconfirm
-
-    curl -s "https://get.sdkman.io" | bash
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 8.0.181-zulu
-    sdk install gradle 3.2.1
-
-    #yaourt -S intellij-idea-ultimate-edition --noconfirm
-    #yaourt -S datagrip --noconfirm
-
-    git config --global user.email "ws.jung.d@gmail.com"
-    git config --global user.name "ws.jung.d"
-
-    # vim
 
 
-    # fuzzy lock
-    yaourt -S betterlockscreen --noconfirm
-    yaourt -S xautolock --noconfirm
+sudo pacman-mirrors --fasttrack 5
+sudo pacman -Syyu --noconfirm
+sudo pacman -S yaourt --noconfirm
+yaourt -Syyua --noconfirm
+yaourt -S fakeroot --noconfirm
+yaourt -S uim --noconfirm
 
-    # dotfiles setting
-    cp $BASEDIR/dotfilesrc ~/.dotfilesrc
-    sudo pip install dotfiles
-    dotfiles --sync --force
+yaourt -S zsh --noconfirm
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+yaourt -S oh-my-zsh-powerline-theme-git --noconfirm
+yaourt -S manjaro-zsh-config --noconfirm
 
-    # zsh
-    sudo pacman -S zsh --noconfirm
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-}
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk version
 
-case $FUNC in 
-    "all")
-        installPackages
-        ;;
-    "packages")
-        installPackages
-        ;;
-    "submodule")
-        settingSubmodule
-        ;;
-    "zsh")
-        settingZsh
-        ;;
-    "vim")
-        settingVim
-        ;;
-    "tmux")
-        settingTmux
-        ;;
-   * )
-        exit
-        ;;
-esac
+yaourt -S base-devel --noconfirm
+yaourt -S cairo libxcb xcb-proto xcb-util-image xcb-util-wm xcb-util-cursor xcb-util-xrm --noconfirm
+yaourt -S clang gcc cmake --noconfirm
+
+yaourt -S patch --noconfirm
+yaourt -S pkgconf --noconfirm
+yaourt -S code-git --noconfirm
+yaourt -S albert --noconfirm
+
+yaourt -S google-chrome --noconfirm
+yaourt -S telegram-desktop --noconfirm
+yaourt -S deluge --noconfirm
+
+yaourt -S krename --noconfirm
+yaourt -S kdiff3 --noconfirm
+yaourt -S krusader --noconfirm
+
+yaourt -S intellij-idea-ultimate-edition --noconfirm
+yaourt -S datagrip --noconfirm

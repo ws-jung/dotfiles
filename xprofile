@@ -1,3 +1,7 @@
+export PATH="$PATH:$HOME/.scripts"
+export XDG_CONFIG_HOME=~/.config
+export TERMINAL=st
+
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 uim-xim &
@@ -5,4 +9,3 @@ export XMODIFIERS='@im=uim'
 
 xmodmap ~/.Xmodmap
 uim-toolbar-gtk-systray &
-export PATH = $PATH:/home/bean/.local/bin
