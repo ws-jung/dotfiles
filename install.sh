@@ -1,5 +1,3 @@
-
-
 sudo pacman-mirrors --fasttrack 5
 sudo pacman -Syyu --noconfirm
 sudo pacman -S yaourt --noconfirm
@@ -17,8 +15,6 @@ yaourt -S cairo libxcb xcb-proto xcb-util-image xcb-util-wm xcb-util-cursor xcb-
 yaourt -S clang gcc cmake --noconfirm
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-yaourt -S oh-my-zsh-powerline-theme-git --noconfirm
-yaourt -S manjaro-zsh-config --noconfirm
 
 yaourt -S patch --noconfirm
 yaourt -S pkgconf --noconfirm
@@ -27,6 +23,9 @@ yaourt -S albert --noconfirm
 
 yaourt -S vim --noconfirm
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+yaourt -S python-pip --noconfirm
+dotfiles -s
 
 yaourt -S google-chrome --noconfirm
 yaourt -S telegram-desktop --noconfirm
@@ -45,8 +44,8 @@ yaourt -S i3-gaps dmenu-manjaro --noconfirm
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
 dconf write /org/mate/desktop/background/show-desktop-icons "false"
 
-# qutebrowser
-yaourt -S tldextract pass qtpass --noconfirm
-yaourt -S qutebrowser --noconfirm
-gpg --gen-key
-#pass init <gpg-pub-key>
+sudo gpasswd -a $USER input
+sudo pacman -S xdotool wmctrl
+yaourt -S gestures --noconfirm
+
+libinput-gestures-setup autostart
