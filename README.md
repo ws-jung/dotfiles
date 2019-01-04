@@ -1,6 +1,6 @@
 # dotfiles
 
-archlinux 배포판인 manjaro-mint 버젼을 위한 설정파일이다.
+archlinux 배포판인 manjaro-mate 버젼을 위한 설정파일이다.
 
 ### 설정 참고
 
