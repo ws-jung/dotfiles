@@ -31,3 +31,16 @@ cd polybar
 ./build.sh
 ```
 
+### i3 주요 단축키
+$mod + 0~9: workspace 전환
+$mod + Shift + 0~9: 창을 해당 workspace로 이동
+$mod + 방향키: 창 포커스 이동
+$mod + Shift + 방향키: 창 위치 이동
+$mod + R: 창 크기 조절 모드
+    방향키: 그쪽방향으로 크기 변경됨
+    enter or exit: 모드 종료
+$mod + F: 창 한개를 전체화면모드로 토글
+$mod + W: 창 모드를 탭 방식으로 변경
+$mod + E: 창 모드를 스플릿 방식으로 변경
+$mod + H: 다음 새 창이 현재창 오른편에 만들어짐
+$mod + V: 다음 새 창이 현재창 아랫편에 
