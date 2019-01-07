@@ -56,10 +56,6 @@ line-color = #f00
 ;module-margin-left = 1
 ;module-margin-right = 2
 
-font-0 = fixed:pixelsize=16;1
-font-1 = unifont:fontformat=truetype:size=13:antialias=false;0
-font-2 = siji:pixelsize=16;1
-
 modules-left = i3 player-moc
 modules-center = taskwarrior
 modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date powermenu
