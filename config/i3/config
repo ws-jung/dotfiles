@@ -203,27 +203,28 @@ mode "music" {
 }
 bindsym $mod+Shift+m mode "music"
 
-mode "video" {
+# vlc
+mode "vlc" {
 	bindsym p exec playerctl previous
 	bindsym n exec playerctl next
 	bindsym Left exec playerctl position 10-
 	bindsym Right exec playerctl position 10+
 	bindsym Up exec amixer sset Master 5%+
 	bindsym Down exec amixer sset Master 5%-
-	bindsym Shift+Left exec playerctl position 5-
-	bindsym Shift+Right exec playerctl position 5+
+	bindsym Shift+Left playerctl position 5-
+	bindsym Shift+Right playerctl position 5+
 	bindsym s exec playerctl stop
 	bindsym space exec playerctl play-pause
-	#bindsym r exec dmenurecord
+	bindsym r exec dmenurecord
 
 	# back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+Shift+m mode "default"
 }
-bindsym $mod+Shift+v mode "video"
+bindsym $mod+Shift+v mode "vlc"
 
-
+for_window [class="^.*"] border pixel 5
 
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="sun-awt-X11-XFramePeer"] focus
@@ -256,3 +257,9 @@ bindsym $mod+t exec --no-startup-id ddspawn tmuxdd
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id compton -b
 exec --no-startup-id nitrogen --restore
+
+# class                 border  backgr. text    indicator
+client.focused          #4c7899 #00bb00 #ffffff #2e9ef4
+client.focused_inactive #333333 #222222 #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #ff0000 #ffffff #900000
