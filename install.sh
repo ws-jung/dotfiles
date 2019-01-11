@@ -13,6 +13,8 @@ sdk version
 yaourt -S base-devel --noconfirm
 yaourt -S cairo libxcb xcb-proto xcb-util-image xcb-util-wm xcb-util-cursor xcb-util-xrm --noconfirm
 yaourt -S clang gcc cmake --noconfirm
+yaourt -S compton compton-conf --noconfirm
+yaourt rofi --noconfirm
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -30,7 +32,6 @@ dotfiles -s
 yaourt -S google-chrome --noconfirm
 yaourt -S telegram-desktop --noconfirm
 yaourt -S deluge --noconfirm
-
 yaourt -S moc --noconfirm
 
 yaourt -S krename --noconfirm
