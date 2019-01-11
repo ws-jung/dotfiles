@@ -68,7 +68,7 @@ audiopulse() { \
 	ffmpeg \
 	-f alsa -i default \
 	-c:a flac \
-	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
+	"$HOME/Music/record/audio-$(date '+%y%m%d-%H%M-%S').flac" &
 	echo $! > ~/.recordingpid
 	updateicon "🎙️"
 	}
@@ -76,7 +76,7 @@ audiopulse() { \
 audioalsa() { \
 	ffmpeg -y \
 	-f alsa -ar 44100 -i hw:1 \
-	"$HOME/audio-$(date '+%y%m%d-%H%M-%S').flac" &
+	"$HOME/Music/record/audio-$(date '+%y%m%d-%H%M-%S').flac" &
 	echo $! > ~/.recordingpid
 	updateicon "🎙️"
 	}
