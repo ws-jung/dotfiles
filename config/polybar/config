@@ -58,7 +58,7 @@ font-1 = unifont:fontformat=truetype:size=13:antialias=false;0
 font-2 = siji:pixelsize=16;1
 
 modules-left = i3 player-moc
-modules-center = taskwarrior
+modules-center =
 modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date powermenu
 
 ;tray-position = right
@@ -85,7 +85,7 @@ separator = |
 module-margin = 2
 
 [bar/left]
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 25
 ;offset-x = 1%
@@ -115,7 +115,7 @@ font-2 = siji:pixelsize=16;1
 
 modules-left = i3 player-moc
 modules-center =
-modules-right = taskwarrior date
+modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -141,7 +141,7 @@ separator = |
 module-margin = 2
 
 [bar/right]
-monitor = ${env:MONITOR:HDMI2}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 25
 ;offset-x = 1%
@@ -171,7 +171,7 @@ font-2 = siji:pixelsize=16;1
 
 modules-left = i3
 modules-center =
-modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date
+modules-right = xkeyboard xbacklight pulseaudio cpu memory temperature date
 
 ;tray-position = right
 ;tray-padding = 2

@@ -18,7 +18,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 yaourt -S patch --noconfirm
 yaourt -S pkgconf --noconfirm
-yaourt -S code-git --noconfirm
+yaourt -S visual-studio-code-bin --noconfirm
 yaourt -S albert --noconfirm
 
 yaourt -S vim --noconfirm
@@ -39,6 +39,9 @@ yaourt -S krusader --noconfirm
 
 yaourt -S intellij-idea-ultimate-edition --noconfirm
 yaourt -S datagrip --noconfirm
+
+yaourt -S compton --noconfirm
+yaourt -S redshift-git --noconfirm
 
 yaourt -S i3-gaps dmenu-manjaro --noconfirm
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
