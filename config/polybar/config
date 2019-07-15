@@ -19,7 +19,11 @@
 
 [fonts]
 font-0 = "Noto Sans CJK KR:pixelsize=16;3"
-font-1 = "Font Awesome 5 Free:size=14:antialias=true:style=Solid;4"
+;font-1 = "Font Awesome 5 Free:size=14:antialias=true:style=Solid;4"
+font-1 = Font Awesome 5 Free Regular:size=14;4
+font-2 = Font Awesome 5 Free Solid:size=14;4
+;font-3 = Siji:pixelsize=14;0
+font-3 = Siji:pixelsize=14;0
 
 [colors]
 ;background = ${xrdb:color0:#222}
@@ -33,13 +37,15 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/laptop]
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 25
 fixed-center = false
 
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -57,8 +63,8 @@ line-color = #f00
 ;module-margin-right = 2
 
 modules-left = i3 player-moc
-modules-center = taskwarrior
-modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date powermenu
+modules-center = 
+modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory battery temperature date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -84,13 +90,15 @@ separator = |
 module-margin = 2
 
 [bar/left]
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
 height = 25
 fixed-center = false
 
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -108,8 +116,8 @@ line-color = #f00
 ;module-margin-right = 2
 
 modules-left = i3 player-moc
-modules-center =
-modules-right = xkeyboard date powermenu
+modules-center = 
+modules-right = gmail xkeyboard filesystem date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -135,13 +143,15 @@ separator = |
 module-margin = 2
 
 [bar/right]
-monitor = ${env:MONITOR:HDMI2}
+monitor = ${env:MONITOR:DVI-I-1}
 width = 100%
 height = 25
 fixed-center = false
 
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -160,7 +170,7 @@ line-color = #f00
 
 modules-left = i3
 modules-center =
-modules-right = xkeyboard filesystem xbacklight pulseaudio cpu memory temperature date powermenu
+modules-right = xkeyboard xbacklight pulseaudio cpu temperature memory wireless-network ip date
 
 ;tray-position = right
 ;tray-padding = 2
@@ -212,7 +222,9 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home/bean/data
+mount-1 = /home/bean/archive
+mount-2 = /home/bean/using
+mount-3 = /home/bean/data
 
 ;format-mounted = <bar-free><ramp-capacity>
 
@@ -279,6 +291,8 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; Separator in between workspaces
 label-separator = |
 
+
+
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -289,10 +303,10 @@ bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
-bar-fill = -
+bar-fill = |
 bar-fill-font = 2
 bar-fill-foreground = #9f78e1
-bar-empty = -
+bar-empty = |
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
@@ -316,11 +330,34 @@ interval = 2
 format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #4bffdc
-label = %percentage_used%%
+;label = %percentage_used%%
+label = %gb_used%
+;format = <label> <bar-used> <ramp-used>
+format = <bar-used> <label>
+
+bar-used-indicator = 
+bar-used-width = 10
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = |
+bar-used-empty = |
+bar-used-empty-foreground = #444444
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp0s20u2
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -370,7 +407,7 @@ format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date% %time% |
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -397,9 +434,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = -
+bar-volume-fill = |
 bar-volume-fill-font = 2
-bar-volume-empty = -
+bar-volume-empty = |
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -425,9 +462,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = |
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = |
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -467,22 +504,22 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 warn-temperature = 60
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.;format-underline}
+;format-warn-underline = ${self.;format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
@@ -538,13 +575,64 @@ compositing-border = over
 margin-top = 0
 margin-bottom = 0
 
+[module/ip]
+type = custom/script
+exec = $XDG_CONFIG_HOME/polybar/scripts/ip.sh
+interval = 60
+
 [module/player-moc]
 type = custom/script
 exec = $XDG_CONFIG_HOME/polybar/scripts/player_moc.sh
-interval = 3
+interval = 1
 
 format-prefix = " "
 
-click-left = mocp -f
-click-right = mocp -r
+click-left = mocp -r
+click-right = mocp -f
 click-middle = mocp -G
+
+[module/wireless-network]
+type = internal/network
+interface = wlp0s20u2
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+;label-connected = %essid% %downspeed:9%
+;label-connected-foreground = #eefafafa
+
+format-packetloss = <animation-packetloss> <label-connected>
+format-connected = " <ramp-signal> <label-connected>"
+label-connected = %signal%% U: %upspeed:2% D: %downspeed:2% %local_ip%
+;label-connected = %signal%%
+
+ramp-signal-0 = 
+ramp-signal-0-foreground = #F03051
+ramp-signal-1 = 
+ramp-signal-1-foreground = #F07127
+ramp-signal-2 = 
+ramp-signal-2-foreground = #F9CE56
+ramp-signal-3 = 
+;ramp-signal-3-foreground = ${colors.purple}
+ramp-signal-4 = 
+;ramp-signal-4-foreground = ${colors.purple}
+ramp-signal-5 = 
+;ramp-signal-5-foreground = ${colors.purple}
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate = 500
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/scripts/gmail/launch.py
+tail = true
+click-left = xdg-open https://mail.google.com
