@@ -112,15 +112,14 @@ padding-right = 1
 module-margin-left = 3
 module-margin-right = 3
 
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;2"
-font-1 = "FontAwesome:size=10;3"
-font-2 = "Noto Sans:size=10;2"
-font-3 = "Noto Sans Mono:size=10;2"
+font-0 = "Noto Sans:size=12;3"
+font-1 = Font Awesome 5 Free Regular:size=14;4
+font-2 = Font Awesome 5 Free Solid:size=14;4
+font-3 = "Noto Sans Mono:size=12;3"
 
-modules-left = i3 xwindow variety arch-aur-updates uptime weather
+modules-left = i3 arch-aur-updates uptime xwindow
 ;modules-center = mpd
-modules-right = cpu1 load-average memory3 filesystem networkspeedup networkspeeddown pulseaudio date
+modules-right = cpu1 load-average memory3 networkspeedup networkspeeddown pulseaudio xbacklight battery date
 
 separator = |
 
@@ -203,11 +202,10 @@ padding-right = 1
 module-margin-left = 3
 module-margin-right = 3
 
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;2"
-font-1 = "FontAwesome:size=10;3"
-font-2 = "Noto Sans:size=10;2"
-font-3 = "Noto Sans Mono:size=10;2"
+font-0 = "Noto Sans:size=12;3"
+font-1 = Font Awesome 5 Free Regular:size=14;4
+font-2 = Font Awesome 5 Free Solid:size=14;4
+font-3 = "Noto Sans Mono:size=12;3"
 
 modules-left = mpd
 modules-center =
@@ -299,10 +297,10 @@ module-margin-left = 3
 module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;0"
-font-1 = "FontAwesome:size=10;0"
-font-2 = "Noto Sans:size=10;0"
-font-3 = "Noto Sans Mono:size=10;0"
+font-0 = "Noto Sans:size=12;3"
+font-1 = Font Awesome 5 Free Regular:size=14;4
+font-2 = Font Awesome 5 Free Solid:size=14;4
+font-3 = "Noto Sans Mono:size=12;3"
 
 modules-left = i3 xwindow
 modules-center =
@@ -1055,17 +1053,17 @@ fuzzy-match = false
 ;http://fontawesome.io/cheatsheet/
 ;       v     
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = " "
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = ""
 
 
 ; Available tags:
@@ -1208,7 +1206,7 @@ interval = 1000
 label = %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
+format-prefix = ""
 format-prefix-foreground = #FFBB00
 ;format-underline = #FFBB00
 
@@ -1323,8 +1321,8 @@ type = internal/cpu
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-;   
-format-prefix = " "
+;   
+format-prefix = ""
 format-prefix-foreground = #cd1f3f
 ;format-underline = #cd1f3f
 
@@ -1647,7 +1645,7 @@ interval = 1
 label = %gb_used%/%gb_free%
 
 format = <label>
-format-prefix = "  "
+format-prefix = " "
 format-prefix-foreground = #3384d0
 ;format-underline = #3384d0
 format-foreground = ${colors.foreground}
@@ -1924,13 +1922,13 @@ bar-volume-foreground-2 = #40ad4b
 bar-volume-foreground-3 = #40ad4b
 bar-volume-foreground-4 = #40ad4b
 bar-volume-foreground-5 = #40ad4b
-bar-volume-foreground-6 = #40ad4b
+bar-volume-foreground-6 = #ff0000
 bar-volume-gradient = false
-bar-volume-indicator = |
+bar-volume-indicator =
 bar-volume-indicator-font = 2
-bar-volume-fill = |
+bar-volume-fill = ─
 bar-volume-fill-font = 2
-bar-volume-empty = |
+bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 format-volume-foreground = ${colors.foreground}

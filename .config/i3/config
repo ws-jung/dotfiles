@@ -1043,3 +1043,18 @@ mode "$mode_gaps_outer" {
 
 # get the mouse out of the way with unclutter
 #exec --no-startup-id unclutter
+
+bindsym $mod+Shift+m mode "$mode_media"
+mode "$mode_media" {
+    bindsym Up      exec --no-startup-id amixer set 'Master' 1%+
+    bindsym Down    exec --no-startup-id amixer set 'Master' 1%-
+    bindsym Left    exec --no-startup-id mpc seek -5
+    bindsym Right   exec --no-startup-id mpc seek +5
+    bindsym Shift+Left exec --no-startup-id mpc seek -1
+    bindsym Shift+Right exec --no-startup-id mpc seek +1
+    bindsym n	    exec --no-startup-id mpc next
+    bindsym p	    exec --no-startup-id mpc prev
+    bindsym space   exec --no-startup-id mpc toggle
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
