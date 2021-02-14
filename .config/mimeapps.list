@@ -1,5 +1,5 @@
 [Added Associations]
-text/plain=vim.desktop;sublime_text_3.desktop;
+text/plain=visual-studio-code.desktop;vim.desktop;sublime_text_3.desktop;
 application/xml=atom.desktop;sublime_text_3.desktop;
 application/x-shellscript=atom.desktop;sublime_text_3.desktop;
 x-scheme-handler/http=exo-web-browser.desktop;
@@ -35,18 +35,18 @@ text/x-changelog=sublime_text_3.desktop;
 application/x-xbel=atom.desktop;sublime_text_3.desktop;
 text/x-lua=atom.desktop;sublime_text_3.desktop;
 application/x-tint2-theme=tint2conf.desktop;
-application/pdf=evince.desktop;org.gnome.Evince.desktop;
+application/pdf=com.github.jeromerobert.pdfarranger.desktop;evince.desktop;org.gnome.Evince.desktop;
 audio/mpeg=pragha.desktop;
-image/jpeg=nomacs.desktop;gimp.desktop;ristretto.desktop;
+image/jpeg=org.kde.gwenview.desktop;feh.desktop;ristretto.desktop;nomacs.desktop;gimp.desktop;
 application/x-asp=atom.desktop;sublime_text_3.desktop;
 video/x-msvideo=vlc.desktop;
 application/x-ms-dos-executable=org.gnome.FileRoller.desktop;
-video/x-matroska=vlc.desktop;
+video/x-matroska=mpv.desktop;vlc.desktop;
 application/vnd.ms-powerpoint=libreoffice-impress.desktop;
 application/vnd.ms-publisher=atom.desktop;sublime_text_3.desktop;libreoffice-draw.desktop;
 application/vnd.visio=inkscape.desktop;
 video/mpeg=vlc.desktop;
-video/mp4=vlc.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
 application/x-php=atom.desktop;sublime_text_3.desktop;
 video/quicktime=vlc.desktop;
@@ -83,6 +83,8 @@ application/vnd.kde.kxmlguirc=atom.desktop;sublime_text_3.desktop;
 audio/mp4=pragha.desktop;
 text/x-chdr=atom.desktop;
 message/rfc822=userapp-Thunderbird-OHDGN0.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-OEZ1W0.desktop;
+application/smil+xml=vlc.desktop;
 
 [Default Applications]
 x-scheme-handler/http=google-chrome.desktop
@@ -108,4 +110,4 @@ application/pdf=org.gnome.Evince.desktop
 text/x-chdr=atom.desktop
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 message/rfc822=userapp-Thunderbird-OHDGN0.desktop
-x-scheme-handler/tg=telegramdesktop.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-OEZ1W0.desktop

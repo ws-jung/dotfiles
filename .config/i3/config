@@ -87,10 +87,11 @@ exec --no-startup-id /home/bean/.screenlayout/home.sh
 #set $firstMonitor DVI-I-1
 #set $secondMonitor DVI-D-1
 
-set $firstMonitor DP-0
-set $secondMonitor HDMI-0
+set $firstMonitor DP2
+set $secondMonitor HDMI1
+set $thridMonitor eDP1
 
-workspace 0 output $secondMonitor
+workspace 0 output $thirdMonitor
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
@@ -137,6 +138,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 # start dmenu
 #bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 bindsym $mod+d exec --no-startup-id /home/bean/.config/polybar/scripts/menu_full -show drun
+bindsym $mod+Shift+d exec --no-startup-id /home/bean/.config/i3/scripts/web-search.sh
 # gmrun
 bindsym mod1+F2 exec --no-startup-id gmrun
 
@@ -406,11 +408,9 @@ font pango:Noto Mono Regular 13
 
 # USER APPLICATIONS TO START AT BOOT
 
-# ArcoLinux Welcome App
-exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
 # Autotiling
-exec_always --no-startup-id autotiling
+# exec_always --no-startup-id autotiling
 
 #browser
 #exec --no-startup-id vivaldi-stable
@@ -465,7 +465,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id volumeicon
 
 #variety
-#exec --no-startup-id variety
+exec --no-startup-id variety
 
 # clipman
 #exec --no-startup-id xfce4-clipman
@@ -868,8 +868,8 @@ mode "$mode_gaps_outer" {
 #####################################################################################################################
 
 #if you want transparency on non-focused windows, ...
-#exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
-
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+#exec --no-startup-id picom --backend glx --experimental-backends -bc
 #bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #####################################################################################################################
@@ -1049,12 +1049,13 @@ mode "$mode_media" {
     bindsym Up      exec --no-startup-id amixer set 'Master' 1%+
     bindsym Down    exec --no-startup-id amixer set 'Master' 1%-
     bindsym Left    exec --no-startup-id mpc seek -5
-    bindsym Right   exec --no-startup-id mpc seek +5
+    bindsym Right   exec --no-startup-i-run-command "/bin/bash -i -c '{cmd}'"d mpc seek +5
     bindsym Shift+Left exec --no-startup-id mpc seek -1
     bindsym Shift+Right exec --no-startup-id mpc seek +1
     bindsym n	    exec --no-startup-id mpc next
     bindsym p	    exec --no-startup-id mpc prev
     bindsym space   exec --no-startup-id mpc toggle
+    bindsym r	    exec --no-startup-id /home/bean/.bin/dmenurecord
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }

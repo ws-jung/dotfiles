@@ -1,4 +1,6 @@
 export XDG_CONFIG_HOME=~/.config
+export WS_JUNG_SCRIPT_HOME=~/ws-jung-script
+export PATH=$WS_JUNG_SCRIPT_HOME:$PATH
 
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
@@ -7,4 +9,8 @@ export XMODIFIERS='@im=uim'
 
 xmodmap ~/.Xmodmap
 uim-toolbar-gtk-systray &
-~/.screenlayout/home.sh &
+~/.screenlayout/laptop.sh &
+
+docker start mysql
+docker start rabbitmq
+docker start redis
